@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 class costomAppBar extends StatelessWidget {
   const costomAppBar({
-    Key? key,
+    Key? key, required this.title, required this.icon,
   }) : super(key: key);
-
+      final String title;
+      final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-       const Text("Notes",style: TextStyle(
+       Text(title,style: TextStyle(
         fontSize: 25
        ),),
         Container(
@@ -21,8 +22,8 @@ class costomAppBar extends StatelessWidget {
           child: Center(
               child: IconButton(
                   onPressed: (() {}),
-                  icon:const Icon(
-                    Icons.search,
+                  icon: Icon(
+                    icon,
                     color: Colors.white,
                   ))),
         )
