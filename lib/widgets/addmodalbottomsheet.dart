@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/cubits/cubit/add_note_cubit.dart';
 import 'package:notes_app/widgets/addNoteForm.dart';
-import 'package:notes_app/widgets/custom_textfield.dart';
-import 'package:notes_app/widgets/custtom_botton.dart';
 
 class AddmodalBottomSheet extends StatelessWidget {
   const AddmodalBottomSheet({super.key});
