@@ -25,7 +25,7 @@ class _addFormNoteState extends State<addFormNote> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
           customtextfield(
@@ -33,7 +33,7 @@ class _addFormNoteState extends State<addFormNote> {
                 title = value;
               },
               hint: "title"),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           customtextfield(
@@ -43,27 +43,32 @@ class _addFormNoteState extends State<addFormNote> {
             hint: "content",
             maxline: 4,
           ),
-          SizedBox(
+          const  SizedBox(
             height: 50,
           ),
-          customBotton(
-            ontap: () {
-              if (formkey.currentState!.validate()) {
-                formkey.currentState!.save();
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return customBotton(
+                isloading:state is addNoteLoading?true : false,
+                ontap: () {
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
 
-                var note_model = notemodel(
-                    color: Colors.blue.value,
-                    date: DateTime.now().toString(),
-                    subtitle: subtitle!,
-                    title: title!);
-                BlocProvider.of<AddNoteCubit>(context).addnote(note_model);  
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+                    var note_model = notemodel(
+                        color: Colors.blue.value,
+                        date: DateTime.now().toString(),
+                        subtitle: subtitle!,
+                        title: title!);
+                    BlocProvider.of<AddNoteCubit>(context).addnote(note_model);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
         ],

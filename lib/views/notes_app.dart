@@ -14,7 +14,9 @@ class notesView extends StatelessWidget {
         backgroundColor: kprimarycolor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         onPressed: () {
-        showModalBottomSheet(context: context, builder: ((context) {
+        showModalBottomSheet(
+          isScrollControlled: true,
+          context: context, builder: ((context) {
           return const AddmodalBottomSheet();
         }));
       },
