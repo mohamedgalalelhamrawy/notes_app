@@ -10,7 +10,7 @@ void main() async {
   await Hive.initFlutter();
   Bloc.observer = simpleBlocObserver();
   Hive.registerAdapter(notemodelAdapter());
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<notemodel>(kNotesBox);
   runApp(const notes_app());
 }
 
