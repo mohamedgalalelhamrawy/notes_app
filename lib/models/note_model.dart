@@ -18,5 +18,5 @@ class notemodel extends HiveObject {
       required this.subtitle,
       required this.title});
 
-  get fetchAllNotes => null;
+ 
 }
