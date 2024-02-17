@@ -40,7 +40,9 @@ class NoteItem extends StatelessWidget {
                 FontAwesomeIcons.trash,
                 color: Colors.black,
               ),
-              onPressed: (() {}),
+              onPressed: (() {
+                note.delete();
+              }),
             ),
           ),
           Padding(
