@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 class costomAppBar extends StatelessWidget {
   const costomAppBar({
-    Key? key, required this.title, required this.icon,
+    Key? key, required this.title, required this.icon, this.onPressed,
   }) : super(key: key);
       final String title;
       final IconData icon;
+      final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +22,7 @@ class costomAppBar extends StatelessWidget {
           width: 48,
           child: Center(
               child: IconButton(
-                  onPressed: (() {}),
+                  onPressed: onPressed ,
                   icon: Icon(
                     icon,
                     color: Colors.white,
